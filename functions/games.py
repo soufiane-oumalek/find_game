@@ -20,6 +20,8 @@ def get_game(onegame):
     url = "https://www.freetogame.com/api/games?"
     games_list = requests.get(url).json()
     for game in games_list:
-        if onegame == game["title"]:
+        lower_name = onegame.lower()
+        lower_title = game["title"].lower()
+        if lower_name == lower_title.lower() or (lower_title.startswith(lower_name) and len(onegame) > 3):
             return game
     return {"error": "this game doesn't exist"}
