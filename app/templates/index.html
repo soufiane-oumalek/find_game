@@ -19,8 +19,9 @@
             <input type="text">
             <button>search</button>
         </section>
+        {% for genre in games %}
         <section class="games">
-            {% for game in games %}
+            {% for game in games[genre] %}
             <article class="art">
                 <img class="image" src='{{ game["thumbnail"] }}'>
                 <div class="title">
@@ -30,6 +31,7 @@
             </article>
             {% endfor %}
         </section>
+        {% endfor %}
     </main>
 </body>
 
